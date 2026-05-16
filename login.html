@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+</head>
+
+<body>
+
+<h2>LOGIN SYSTEM</h2>
+
+<input id="username" placeholder="username">
+<br><br>
+
+<input id="password" type="password" placeholder="password">
+<br><br>
+
+<button onclick="login()">LOGIN</button>
+
+<h3 id="msg"></h3>
+
+<script>
+function login(){
+  let u = document.getElementById("username").value;
+  let p = document.getElementById("password").value;
+
+  if(u === "admin" && p === "1234"){
+    window.location.href = "terminal.html";
+  } else {
+    document.getElementById("msg").innerHTML = "WRONG ❌";
+  }
+}
+</script>
+
+</body>
+</html>
