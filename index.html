@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Youssef Site</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youssef Cyber World</title>
 
- <style>
+<style>
 
 *{
   margin:0;
@@ -41,13 +41,11 @@ body{
   justify-content:space-between;
   align-items:center;
   padding:25px 50px;
-  backdrop-filter:blur(10px);
 }
 
 .logo{
   font-size:28px;
   font-weight:bold;
-  animation:slideDown 1s ease;
 }
 
 .menu a{
@@ -64,7 +62,6 @@ body{
 .hero{
   text-align:center;
   padding:120px 20px;
-  animation:fadeIn 2s ease;
 }
 
 .hero h1{
@@ -75,6 +72,7 @@ body{
 .hero p{
   font-size:22px;
   color:#cbd5e1;
+  min-height:30px;
 }
 
 .btn{
@@ -110,7 +108,6 @@ body{
   padding:35px;
   border-radius:20px;
   transition:0.4s;
-  animation:up 1.5s ease;
 }
 
 .card:hover{
@@ -122,78 +119,25 @@ body{
   margin-bottom:15px;
 }
 
-@keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-@keyframes up{
-  from{
-    opacity:0;
-    transform:translateY(50px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-@keyframes slideDown{
-  from{
-    opacity:0;
-    transform:translateY(-30px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-  
- </style>
+</style>
 </head>
+
 <body>
 
-  <div class="navbar">
-    <div class="logo">Youssef</div>
+<div class="navbar">
 
-    <div class="menu">
-      <a href="">Home</a>
-      <a href="">About</a>
-      <a href="">Contact</a>
-    </div>
+  <div class="logo">
+    Youssef
   </div>
 
+  <div class="menu">
+    <a href="">Home</a>
+    <a href="">About</a>
+    <a href="">Contact</a>
+  </div>
 
-const text =
-"Web Developer | Cyber Security Learner | Future Hacker";
+</div>
 
-let i = 0;
-
-function typing(){
-
-  if(i < text.length){
-
-    document.getElementById("typing").innerHTML += text.charAt(i);
-
-    i++;
-
-    setTimeout(typing,70);
-  }
-}
-
-typing();
-
-</script>
 <div class="hero">
 
   <h1>
@@ -207,24 +151,26 @@ typing();
   </a>
 
 </div>
-  <div class="cards">
 
-    <div class="card">
-      <h2>Web Design</h2>
-      <p>I create modern websites.</p>
-    </div>
+<div class="cards">
 
-    <div class="card">
-      <h2>Cyber Security</h2>
-      <p>Learning networking and ethical hacking.</p>
-    </div>
-
-    <div class="card">
-      <h2>Projects</h2>
-      <p>More projects coming soon.</p>
-    </div>
-
+  <div class="card">
+    <h2>Web Design</h2>
+    <p>I create modern websites.</p>
   </div>
+
+  <div class="card">
+    <h2>Cyber Security</h2>
+    <p>Learning networking and ethical hacking.</p>
+  </div>
+
+  <div class="card">
+    <h2>Projects</h2>
+    <p>More projects coming soon.</p>
+  </div>
+
+</div>
+
 <script>
 
 const text =
@@ -247,8 +193,6 @@ function typing(){
 typing();
 
 </script>
+
 </body>
 </html>
-
-
-   
