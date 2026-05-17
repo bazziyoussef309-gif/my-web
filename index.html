@@ -1,16 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>System Start</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youssef Site</title>
 
+  <style>
+
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#0f172a;
+      color:white;
+    }
+
+    .navbar{
+      background:#1e293b;
+      padding:20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:bold;
+    }
+
+    .menu a{
+      color:white;
+      text-decoration:none;
+      margin-left:20px;
+    }
+
+    .hero{
+      text-align:center;
+      padding:100px 20px;
+    }
+
+    .hero h1{
+      font-size:50px;
+    }
+
+    .hero p{
+      color:#cbd5e1;
+      font-size:20px;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:20px;
+      padding:15px 30px;
+      background:#3b82f6;
+      color:white;
+      text-decoration:none;
+      border-radius:10px;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#2563eb;
+    }
+
+    .cards{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      padding:50px;
+      flex-wrap:wrap;
+    }
+
+    .card{
+      background:#1e293b;
+      padding:30px;
+      width:250px;
+      border-radius:15px;
+    }
+
+    .card h2{
+      margin-top:0;
+    }
+
+  </style>
+</head>
 <body>
 
-<h1>WELCOME</h1>
+  <div class="navbar">
+    <div class="logo">Youssef</div>
 
-<button onclick="window.location.href='login.html'">
-  ENTER SYSTEM
-</button>
+    <div class="menu">
+      <a href="">Home</a>
+      <a href="">About</a>
+      <a href="">Contact</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1>Welcome To My Website</h1>
+
+    <p>
+      Beginner Web Developer & Cyber Security Learner
+    </p>
+
+    <a href="" class="btn">Get Started</a>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h2>Web Design</h2>
+      <p>I create modern websites.</p>
+    </div>
+
+    <div class="card">
+      <h2>Cyber Security</h2>
+      <p>Learning networking and ethical hacking.</p>
+    </div>
+
+    <div class="card">
+      <h2>Projects</h2>
+      <p>More projects coming soon.</p>
+    </div>
+
+  </div>
 
 </body>
 </html>
