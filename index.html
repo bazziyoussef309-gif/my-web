@@ -172,15 +172,28 @@ body{
     </div>
   </div>
 
-  <div class="hero">
-    <h1>Welcome To My Website</h1>
+  <script>
 
-    <p>
-      Beginner Web Developer & Cyber Security Learner
-    </p>
+const text =
+"Web Developer | Cyber Security Learner | Future Hacker";
 
-    <a href="" class="btn">Get Started</a>
-  </div>
+let i = 0;
+
+function typing(){
+
+  if(i < text.length){
+
+    document.getElementById("typing").innerHTML += text.charAt(i);
+
+    i++;
+
+    setTimeout(typing,70);
+  }
+}
+
+typing();
+
+</script>
 
   <div class="cards">
 
