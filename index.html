@@ -158,7 +158,8 @@ body{
   }
 }
 
-</style>
+  
+ <style>
 </head>
 <body>
 
@@ -213,6 +214,30 @@ typing();
     </div>
 
   </div>
+<script>
 
+const text =
+"Web Developer | Cyber Security Learner | Future Hacker";
+
+let i = 0;
+
+function typing(){
+
+  if(i < text.length){
+
+    document.getElementById("typing").innerHTML += text.charAt(i);
+
+    i++;
+
+    setTimeout(typing,70);
+  }
+}
+
+typing();
+
+</script>
 </body>
 </html>
+
+
+   
