@@ -31,30 +31,27 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword 
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyA7pLKQNJJpObQtvQ7p5KGWFoKoXYcRrbY",
-    authDomain: "my-login-system-85f1b.firebaseapp.com",
-    projectId: "my-login-system-85f1b",
-    storageBucket: "my-login-system-85f1b.firebasestorage.app",
-    messagingSenderId: "205397991898",
-    appId: "1:205397991898:web:5dd28b21337ea54245a0e3"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script>
+const firebaseConfig = {
+  apiKey: "AIzaSyA7pLKQNJJpObQtvQ7p5KGWFoKoXYcRrbY",
+  authDomain: "my-login-system-85f1b.firebaseapp.com",
+  projectId: "my-login-system-85f1b",
+  storageBucket: "my-login-system-85f1b.firebasestorage.app",
+  messagingSenderId: "205397991898",
+  appId: "1:205397991898:web:5dd28b21337ea54245a0e3"
+};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// REGISTER
 window.register = function () {
-
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
 
@@ -67,8 +64,8 @@ window.register = function () {
     });
 }
 
+// LOGIN
 window.login = function () {
-
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
 
@@ -80,8 +77,5 @@ window.login = function () {
       document.getElementById("msg").innerHTML = error.message;
     });
 }
-
 </script>
-
-</body>
 </html>
