@@ -1,81 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Firebase Login</title>
+  <title>Login System</title>
 </head>
 
 <body>
 
-<h2>LOGIN SYSTEM</h2>
+  <h2>Login / Register</h2>
 
-<input id="email" type="email" placeholder="Email">
-<br><br>
+  <input id="email" type="email" placeholder="Email">
+  <br><br>
 
-<input id="password" type="password" placeholder="Password">
-<br><br>
+  <input id="password" type="password" placeholder="Password">
+  <br><br>
 
-<button onclick="register()">REGISTER</button>
+  <button onclick="register()">Register</button>
+  <button onclick="login()">Login</button>
 
-<button onclick="login()">LOGIN</button>
+  <p id="msg"></p>
 
-<h3 id="msg"></h3>
+  <script type="module">
 
-<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+    import { 
+      getAuth, 
+      createUserWithEmailAndPassword, 
+      signInWithEmailAndPassword 
+    } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyA7pLKQNJJpObQtvQ7p5KGWFoKoXYcRrbY",
+      authDomain: "my-login-system-85f1b.firebaseapp.com",
+      projectId: "my-login-system-85f1b",
+      storageBucket: "my-login-system-85f1b.firebasestorage.app",
+      messagingSenderId: "205397991898",
+      appId: "1:205397991898:web:5dd28b21337ea54245a0e3"
+    };
 
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-import { 
-  getAuth, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword 
-} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+    // REGISTER
+    window.register = function () {
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
 
-const firebaseConfig = {
-  apiKey: "AIzaSyA7pLKQNJJpObQtvQ7p5KGWFoKoXYcRrbY",
-  authDomain: "my-login-system-85f1b.firebaseapp.com",
-  projectId: "my-login-system-85f1b",
-  storageBucket: "my-login-system-85f1b.firebasestorage.app",
-  messagingSenderId: "205397991898",
-  appId: "1:205397991898:web:5dd28b21337ea54245a0e3"
-};
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          document.getElementById("msg").innerText = "REGISTERED ✅";
+        })
+        .catch((error) => {
+          document.getElementById("msg").innerText = error.message;
+        });
+    }
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+    // LOGIN
+    window.login = function () {
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
 
-// REGISTER
-window.register = function () {
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          window.location.href = "terminal.html";
+        })
+        .catch((error) => {
+          document.getElementById("msg").innerText = error.message;
+        });
+    }
 
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      document.getElementById("msg").innerHTML = "REGISTERED ✅";
-    })
-    .catch((error) => {
-      document.getElementById("msg").innerHTML = error.message;
-    });
-}
+  </script>
 
-// LOGIN
-window.login = function () {
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      window.location.href = "terminal.html";
-    })
-    .catch((error) => {
-      document.getElementById("msg").innerHTML = error.message;
-    });
-}
-</script>
+</body>
 </html>
