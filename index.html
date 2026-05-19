@@ -11,9 +11,23 @@
 
   <br><br>
 
-  <a href="login.html">
-    <button style="font-size:25px;">ENTER SYSTEM</button>
-  </a>
+  <button onclick="enterSystem()" style="font-size:25px;padding:15px 30px;">
+  ENTER SYSTEM
+</button>
+
+<script>
+function enterSystem() {
+  document.body.innerHTML = `
+    <h1 style="color:lime;font-family:monospace;margin-top:200px;">
+      Accessing System...
+    </h1>
+  `;
+
+  setTimeout(() => {
+    window.location.href = "login.html";
+  }, 2000);
+}
+</script>
 
 </body>
 
