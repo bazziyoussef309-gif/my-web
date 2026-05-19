@@ -1,33 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>My Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Youssef Site</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:Arial;
+      background:linear-gradient(-45deg,#0f172a,#1e293b,#0f172a,#1d4ed8);
+      background-size:400% 400%;
+      animation:bg 10s ease infinite;
+      color:white;
+      overflow:hidden;
+    }
+
+    @keyframes bg{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    .navbar{
+      width:100%;
+      padding:20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(10px);
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#38bdf8;
+    }
+
+    .hero{
+      height:85vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero h1{
+      font-size:60px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      color:#cbd5e1;
+      margin-bottom:40px;
+    }
+
+    button{
+      padding:15px 40px;
+      border:none;
+      border-radius:15px;
+      background:#2563eb;
+      color:white;
+      font-size:20px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:scale(1.08);
+      box-shadow:0 0 20px #3b82f6;
+    }
+  </style>
 </head>
 
-<body style="background:black;color:lime;font-family:monospace;text-align:center;">
+<body>
 
-  <h1>WELCOME TO MY WEBSITE 😎</h1>
+  <div class="navbar">
+    <div class="logo">Youssef Site</div>
+  </div>
 
-  <br><br>
+  <div class="hero">
+    <h1>WELCOME TO MY CYBER WORLD 😎</h1>
 
-  <button onclick="enterSystem()" style="font-size:25px;padding:15px 30px;">
-  ENTER SYSTEM
-</button>
+    <p>Future Developer • Cyber Security • Firebase System</p>
 
-<script>
-function enterSystem() {
-  document.body.innerHTML = `
-    <h1 style="color:lime;font-family:monospace;margin-top:200px;">
-      Accessing System...
-    </h1>
-  `;
+    <button onclick="enterSystem()">ENTER SYSTEM</button>
+  </div>
 
-  setTimeout(() => {
-    window.location.href = "login.html";
-  }, 2000);
-}
-</script>
+  <script>
+    function enterSystem(){
+
+      document.body.innerHTML = `
+        <h1 style="
+        color:lime;
+        font-family:monospace;
+        text-align:center;
+        margin-top:250px;">
+        Accessing System...
+        </h1>
+      `;
+
+      setTimeout(() => {
+        window.location.href = "login.html";
+      },2000);
+
+    }
+  </script>
 
 </body>
 
