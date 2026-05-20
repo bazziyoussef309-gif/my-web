@@ -121,11 +121,13 @@ button.onclick = () => {
 
     signInWithEmailAndPassword(auth, email.value, password.value)
 
-    .then(() => {
+   .then(() => {
 
-      alert("Login Success 🔥");
+alert("Login Success 🔥");
 
-    })
+window.location.href = "terminal.html";
+
+})
 
     .catch((error) => {
 
