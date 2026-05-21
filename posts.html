@@ -86,7 +86,35 @@ Cyber security + Web Development journey 🔥
 <button onclick="like2()">Like ❤️ <span id="likes2">0</span></button>
 
 </div>
-<script>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyBs1bbPn87Pp6H11ZFYXQui7LA55V3Mc0g",
+
+authDomain: "youssefcyber-39505.firebaseapp.com",
+
+projectId: "youssefcyber-39505",
+
+storageBucket: "youssefcyber-39505.firebasestorage.app",
+
+messagingSenderId: "651749790484",
+
+appId: "1:651749790484:web:b85831fd2aae673144e801"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
 
 function addPost(){
 
@@ -99,32 +127,45 @@ post.className = "post";
 post.innerHTML = `
 <h2>New Post 😎</h2>
 <p>${text}</p>
-<button>Like ❤️</button>
 `;
 
 document.body.appendChild(post);
 
 }
+
 let count1 = 0;
 let count2 = 0;
 
 function like1() {
+
 count1++;
+
 document.getElementById("likes1").innerText = count1;
+
 }
 
 function like2() {
+
 count2++;
+
 document.getElementById("likes2").innerText = count2;
+
 }
-function addComment1() {
+
+async function addComment1() {
 
 let text = document.getElementById("comment1").value;
 
+await addDoc(collection(db, "comments"), {
+
+text: text
+
+});
+
 document.getElementById("comments1").innerHTML += text + "<br>";
 
-} 
 }
+
 </script>
 </body>
 
