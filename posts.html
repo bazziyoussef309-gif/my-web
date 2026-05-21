@@ -162,14 +162,15 @@ text: text
 
 });
 
-document.getElementById("comments1").innerHTML += text + "<br>";
+document.getElementById("comment1").value = "";
+
+loadComments();
 
 }
-import {
-getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 async function loadComments() {
+
+document.getElementById("comments1").innerHTML = "";
 
 const querySnapshot = await getDocs(collection(db, "comments"));
 
