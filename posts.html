@@ -63,7 +63,7 @@ style="padding:10px;width:300px;border-radius:10px;">
 Today I connected Firebase with my website 😎
 </p>
 <img src="photo.jbg.jpeg" width="300">
-<button>Like ❤️</button>
+<button onclick="like1()">Like ❤️ <span id="likes1">0</span></button>
 
 </div>
 
@@ -75,7 +75,7 @@ Today I connected Firebase with my website 😎
 Cyber security + Web Development journey 🔥
 </p>
 
-<button>Like ❤️</button>
+<button onclick="like2()">Like ❤️ <span id="likes2">0</span></button>
 
 </div>
 <script>
@@ -97,7 +97,19 @@ post.innerHTML = `
 document.body.appendChild(post);
 
 }
+<script>
+let count1 = 0;
+let count2 = 0;
 
+function like1() {
+count1++;
+document.getElementById("likes1").innerText = count1;
+}
+
+function like2() {
+count2++;
+document.getElementById("likes2").innerText = count2;
+}
 </script>
 </body>
 
