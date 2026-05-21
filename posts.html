@@ -49,7 +49,12 @@ button:hover{
 <body>
 
 <h1>CYBER POSTS 🔥</h1>
+<input id="postInput" placeholder="Write a post..."
+style="padding:10px;width:300px;border-radius:10px;">
 
+<button onclick="addPost()">Add Post 🔥</button>
+
+<br><br>
 <div class="post">
 
 <h2>Post #1</h2>
@@ -73,7 +78,27 @@ Cyber security + Web Development journey 🔥
 <button>Like ❤️</button>
 
 </div>
+<script>
 
+function addPost(){
+
+let text = document.getElementById("postInput").value;
+
+let post = document.createElement("div");
+
+post.className = "post";
+
+post.innerHTML = `
+<h2>New Post 😎</h2>
+<p>${text}</p>
+<button>Like ❤️</button>
+`;
+
+document.body.appendChild(post);
+
+}
+
+</script>
 </body>
 
 </html>
