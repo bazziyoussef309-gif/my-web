@@ -165,7 +165,23 @@ text: text
 document.getElementById("comments1").innerHTML += text + "<br>";
 
 }
+import {
+getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+async function loadComments() {
+
+const querySnapshot = await getDocs(collection(db, "comments"));
+
+querySnapshot.forEach((doc) => {
+
+document.getElementById("comments1").innerHTML += doc.data().text + "<br>";
+
+});
+
+}
+
+loadComments();
 </script>
 </body>
 
