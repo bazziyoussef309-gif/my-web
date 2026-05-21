@@ -63,7 +63,9 @@ style="padding:10px;width:300px;border-radius:10px;">
 Today I connected Firebase with my website 😎
 </p>
 <img src="photo.jbg.jpeg" width="300">
-<button onclick="like1()">Like ❤️ <span id="likes1">0</span></button>
+<button onclick="like1()">Like ❤️</button>
+<span id="likes1">0</span>
+
 <br><br>
 
 <input type="text" id="comment1" placeholder="Write a comment">
@@ -115,12 +117,13 @@ function like2() {
 count2++;
 document.getElementById("likes2").innerText = count2;
 }
-  function addComment1() {
+function addComment1() {
 
 let text = document.getElementById("comment1").value;
 
 document.getElementById("comments1").innerHTML += text + "<br>";
 
+} 
 }
 </script>
 </body>
