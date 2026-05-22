@@ -151,9 +151,37 @@ document.getElementById("likes2").innerText = count2;
 
 }
 
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+
+  apiKey: "حط apiKey تبعك",
+  authDomain: "حط authDomain تبعك",
+  projectId: "حط projectId تبعك",
+  storageBucket: "حط storageBucket تبعك",
+  messagingSenderId: "حط messagingSenderId تبعك",
+  appId: "حط appId تبعك"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
 async function addComment1() {
-alert("WORKING");
+
   let text = document.getElementById("comment1").value;
+
+  if (text === "") return;
 
   try {
 
@@ -161,40 +189,40 @@ alert("WORKING");
       text: text
     });
 
-    console.log("saved!");
-
     document.getElementById("comment1").value = "";
 
     loadComments();
+
+    console.log("saved!");
 
   } catch (e) {
 
     console.error(e);
 
   }
-}
 
 }
 
 async function loadComments() {
 
-document.getElementById("comments1").innerHTML = "";
+  document.getElementById("comments1").innerHTML = "";
 
-const querySnapshot = await getDocs(collection(db, "comments"));
+  const querySnapshot = await getDocs(collection(db, "comments"));
 
-querySnapshot.forEach((doc) => {
+  querySnapshot.forEach((doc) => {
 
-document.getElementById("comments1").innerHTML += doc.data().text + "<br>";
+    document.getElementById("comments1").innerHTML +=
+      doc.data().text + "<br>";
 
-});
+  });
 
 }
 
+window.addComment1 = addComment1;
+
 loadComments();
-window.onload = function () {
 
-  document.getElementById("commentBtn").addEventListener("click", addComment1);
-
+</script>
 };
 </script>
 </body>
