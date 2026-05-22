@@ -191,7 +191,11 @@ document.getElementById("comments1").innerHTML += doc.data().text + "<br>";
 }
 
 loadComments();
+window.onload = function () {
+
   document.getElementById("commentBtn").addEventListener("click", addComment1);
+
+};
 </script>
 </body>
 
