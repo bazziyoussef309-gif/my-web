@@ -154,17 +154,27 @@ document.getElementById("likes2").innerText = count2;
 
 async function addComment1() {
 
-let text = document.getElementById("comment1").value;
+  let text = document.getElementById("comment1").value;
 
-await addDoc(collection(db, "comments"), {
+  try {
 
-text: text
+    await addDoc(collection(db, "comments"), {
+      text: text
+    });
 
-});
+    console.log("saved!");
 
-document.getElementById("comment1").value = "";
+    document.getElementById("comment1").value = "";
 
-loadComments();
+    loadComments();
+
+  } catch (e) {
+
+    console.error(e);
+
+  }
+
+}
 
 }
 
