@@ -69,7 +69,7 @@ Today I connected Firebase with my website 😎
 
 <input type="text" id="comment1" placeholder="Write a comment">
 
-<button onclick="addComment1()">Comment</button>
+<button id="commentBtn">Comment</button>
 
 <p id="comments1"></p>
 </div>
@@ -172,7 +172,6 @@ alert("WORKING");
     console.error(e);
 
   }
-window.addComment1 = addComment1;
 }
 
 }
@@ -192,6 +191,7 @@ document.getElementById("comments1").innerHTML += doc.data().text + "<br>";
 }
 
 loadComments();
+  document.getElementById("commentBtn").addEventListener("click", addComment1);
 </script>
 </body>
 
