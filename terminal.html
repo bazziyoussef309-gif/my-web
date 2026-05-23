@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My System</title>
+<title>Terminal</title>
 
 <style>
 
@@ -12,56 +12,63 @@ body{
 background:black;
 color:lime;
 font-family:monospace;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-margin:0;
+padding:20px;
+overflow:hidden;
 }
 
-.box{
-text-align:center;
-}
-
-button{
-background:lime;
-border:none;
-padding:15px 30px;
-margin:10px;
+#terminal{
+white-space:pre-line;
 font-size:18px;
-cursor:pointer;
-border-radius:10px;
 }
 
-button:hover{
-transform:scale(1.05);
+.glow{
+text-shadow:0 0 10px lime;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="box">
+<div id="terminal" class="glow"></div>
 
-<h1>WELCOME TO MY SYSTEM 😎</h1>
+<script>
 
-<p>Access Granted...</p>
+const text = `
+BOOTING SYSTEM...
+LOADING FILES...
+CONNECTING DATABASE...
+ACCESS GRANTED
 
-<br>
+WELCOME YOUSSEF 😎
 
-<button>Stories</button>
+> SYSTEM STATUS: ONLINE
+> USERS: 1
+> SECURITY: ACTIVE
 
-<a href="posts.html">
-  <button>Posts</button>
-</a>
+`;
 
-<a href="profile.html">
-<button>Profile</button>
-</a>
-</div>
+let i = 0;
+
+function typeWriter(){
+
+if(i < text.length){
+
+document.getElementById("terminal").innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typeWriter, 40);
+
+}
+
+}
+
+typeWriter();
+
+</script>
 
 </body>
-
 </html>
+
+
