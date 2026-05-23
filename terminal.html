@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="style.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Profile</title>
@@ -138,6 +139,17 @@ font-weight:bold;
 </head>
 
 <body>
+  <nav>
+  <div class="logo">CYBER SITE</div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul id="menu">
+    <li><a href="posts.html">Posts</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    <li><a href="terminal.html">Terminal</a></li>
+  </ul>
+</nav>
 <body>
 
 <div class="fake-terminal">
@@ -207,10 +219,17 @@ Today I worked on my website and added stories 😎
 <br><br>
 
 <button>Like ❤️</button>
-
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
 </div>
 
 
 
   
 
+
+
+  
