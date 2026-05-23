@@ -1,52 +1,75 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Posts</title>
 
+<link rel="stylesheet" href="style.css">
+
 <style>
-
 body{
-  background:#000;
-  color:#00ff88;
-  font-family:monospace;
-  padding:30px;
+  margin:0;
+  font-family: monospace;
+  background:black;
+  color:#00ff9d;
+  padding-top:80px;
 }
 
-h1{
-  text-align:center;
-  margin-bottom:40px;
+/* posts container */
+.container{
+  width:90%;
+  max-width:600px;
+  margin:auto;
 }
 
+/* card */
 .post{
-  background:#111;
-  border:1px solid #00ff88;
-  padding:20px;
+  border:1px solid #00ff9d;
   margin-bottom:20px;
-  border-radius:15px;
-  box-shadow:0 0 20px #00ff88;
+  padding:10px;
+  background:rgba(0,0,0,0.6);
+  box-shadow:0 0 10px #00ff9d;
+  animation: fade 0.6s ease;
 }
 
+@keyframes fade{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.post img{
+  width:100%;
+  border:1px solid #00ff9d;
+}
+
+.post h3{
+  margin:10px 0 5px;
+}
+
+.post p{
+  font-size:14px;
+}
+
+/* like button */
 button{
-  background:#00ff88;
-  border:none;
-  padding:10px 20px;
-  border-radius:10px;
+  background:black;
+  border:1px solid #00ff9d;
+  color:#00ff9d;
+  padding:5px 10px;
   cursor:pointer;
-  font-weight:bold;
+  transition:0.3s;
 }
 
 button:hover{
-  transform:scale(1.05);
+  box-shadow:0 0 10px #00ff9d;
 }
-
 </style>
-
 </head>
 
 <body>
+
+<!-- NAVBAR -->
 <nav>
   <div class="logo">CYBER SITE</div>
 
@@ -58,188 +81,39 @@ button:hover{
     <li><a href="terminal.html">Terminal</a></li>
   </ul>
 </nav>
-<h1>CYBER POSTS 🔥</h1>
-<input id="postInput" placeholder="Write a post..."
-style="padding:10px;width:300px;border-radius:10px;">
 
-<button onclick="addPost()">Add Post 🔥</button>
+<!-- POSTS -->
+<div class="container">
 
-<br><br>
-<div class="post">
+  <div class="post">
+    <img src="https://via.placeholder.com/600x300">
+    <h3>First Post 🔥</h3>
+    <p>This is my cyber styled post system.</p>
+    <button onclick="like(this)">❤️ Like</button>
+  </div>
 
-<h2>Post #1</h2>
-
-<p>
-Today I connected Firebase with my website 😎
-</p>
-<button onclick="like1()">Like ❤️</button>
-<span id="likes1">0</span>
-
-<br><br>
-
-<input type="text" id="comment1" placeholder="Write a comment">
-
-<button id="commentBtn">Comment</button>
-
-<p id="comments1"></p>
-</div>
-
-<div class="post">
-
-<h2>Post #2</h2>
-
-<p>
-Cyber security + Web Development journey 🔥
-</p>
-
-<button onclick="like2()">Like ❤️ <span id="likes2">0</span></button>
+  <div class="post">
+    <img src="https://via.placeholder.com/600x300">
+    <h3>Hacking Vibes 💻</h3>
+    <p>Matrix style website building.</p>
+    <button onclick="like(this)">❤️ Like</button>
+  </div>
 
 </div>
-<script type="module">
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-const firebaseConfig = {
-
-apiKey: "AIzaSyBs1bbPn87Pp6H11ZFYXQui7LA55V3Mc0g",
-
-authDomain: "youssefcyber-39505.firebaseapp.com",
-
-projectId: "youssefcyber-39505",
-
-storageBucket: "youssefcyber-39505.firebasestorage.app",
-
-messagingSenderId: "651749790484",
-
-appId: "1:651749790484:web:b85831fd2aae673144e801"
-
-};
-
-const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
-
-function addPost(){
-
-let text = document.getElementById("postInput").value;
-
-let post = document.createElement("div");
-
-post.className = "post";
-
-post.innerHTML = `
-<h2>New Post 😎</h2>
-<p>${text}</p>
-`;
-
-document.body.appendChild(post);
-
-}
-
-let count1 = 0;
-let count2 = 0;
-
-function like1() {
-
-count1++;
-
-document.getElementById("likes1").innerText = count1;
-
-}
-
-function like2() {
-
-count2++;
-
-document.getElementById("likes2").innerText = count2;
-
-}
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-
-  apiKey: "حط apiKey تبعك",
-  authDomain: "حط authDomain تبعك",
-  projectId: "حط projectId تبعك",
-  storageBucket: "حط storageBucket تبعك",
-  messagingSenderId: "حط messagingSenderId تبعك",
-  appId: "حط appId تبعك"
-
-};
-
-const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
-
-async function addComment1() {
-
-  let text = document.getElementById("comment1").value;
-
-  if (text === "") return;
-
-  try {
-
-    await addDoc(collection(db, "comments"), {
-      text: text
-    });
-
-    document.getElementById("comment1").value = "";
-
-    loadComments();
-
-    console.log("saved!");
-
-  } catch (e) {
-
-    console.error(e);
-
-  }
-
-}
-
-async function loadComments() {
-
-  document.getElementById("comments1").innerHTML = "";
-
-  const querySnapshot = await getDocs(collection(db, "comments"));
-
-  querySnapshot.forEach((doc) => {
-
-    document.getElementById("comments1").innerHTML +=
-      doc.data().text + "<br>";
-
-  });
-
-}
-
-window.addComment1 = addComment1;
-
-loadComments();
-
-</script>
-};
-</script>
-  <script>
+<script>
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
-</script>
-</body>
 
+function like(btn){
+  if(btn.innerHTML.includes("❤️")){
+    btn.innerHTML = "💚 Liked";
+  } else {
+    btn.innerHTML = "❤️ Like";
+  }
+}
+</script>
+
+</body>
 </html>
