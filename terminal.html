@@ -94,6 +94,21 @@ font-weight:bold;
   border-radius: 50%;
   border: 2px solid lime;
 }
+  .glitch{
+  position: relative;
+  color: lime;
+  font-size: 40px;
+  font-weight: bold;
+  animation: glitch 1s infinite;
+}
+
+@keyframes glitch{
+  0%{text-shadow:2px 2px red;}
+  25%{text-shadow:-2px -2px blue;}
+  50%{text-shadow:2px -2px lime;}
+  75%{text-shadow:-2px 2px red;}
+  100%{text-shadow:2px 2px blue;}
+}
 </style>
 </head>
 
@@ -110,7 +125,9 @@ WELCOME TO MY WEBSITE 😎
 
 <img src="photo.jbg.jpeg">
 
-<div class="username">Youssef</div>
+<div class="username glitch" data-text="Youssef">
+Youssef
+</div>
 
 <div class="bio">
 Cyber Security Student ⚡
