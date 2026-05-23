@@ -3,7 +3,7 @@
 <html>
 
 <head>
-
+<link rel="stylesheet" href="style.css">
 <title>Posts</title>
 
 <style>
@@ -47,7 +47,17 @@ button:hover{
 </head>
 
 <body>
+<nav>
+  <div class="logo">CYBER SITE</div>
 
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul id="menu">
+    <li><a href="posts.html">Posts</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    <li><a href="terminal.html">Terminal</a></li>
+  </ul>
+</nav>
 <h1>CYBER POSTS 🔥</h1>
 <input id="postInput" placeholder="Write a post..."
 style="padding:10px;width:300px;border-radius:10px;">
@@ -224,6 +234,11 @@ loadComments();
 
 </script>
 };
+</script>
+  <script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
 </script>
 </body>
 
