@@ -3,7 +3,7 @@
 <html>
 
 <head>
-
+<link rel="stylesheet" href="style.css">
 <title>My Profile</title>
 
 <style>
@@ -75,7 +75,17 @@ font-weight:bold;
 </head>
 
 <body>
+<nav>
+  <div class="logo">CYBER SITE</div>
 
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul id="menu">
+    <li><a href="posts.html">Posts</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    <li><a href="terminal.html">Terminal</a></li>
+  </ul>
+</nav>
 <div class="profile">
 
 <img src="photo.jbg.jpeg">
@@ -89,7 +99,11 @@ font-weight:bold;
 <a href="terminal.html">Back</a>
 
 </div>
-
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
 </body>
 
 </html>
