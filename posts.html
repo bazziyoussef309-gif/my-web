@@ -8,6 +8,33 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+  .post{
+  border:1px solid #00ff9d;
+  margin-bottom:25px;
+  padding:15px;
+  background:rgba(0,0,0,0.7);
+  box-shadow:0 0 15px #00ff9d;
+  border-radius:10px;
+}
+
+.post img{
+  width:100%;
+  border-radius:10px;
+  transition:0.4s;
+}
+
+.post img:hover{
+  transform:scale(1.02);
+}
+
+.post h3{
+  margin-top:10px;
+  color:#00ff9d;
+}
+
+.post p{
+  color:white;
+}
 body{
   margin:0;
   font-family: monospace;
@@ -107,12 +134,15 @@ button:hover{
     <button onclick="like(this)">❤️ Like</button>
   </div>
 
-  <div class="post">
-    <img src="https://via.placeholder.com/600x300">
-    <h3>Hacking Vibes 💻</h3>
-    <p>Matrix style website building.</p>
-    <button onclick="like(this)">❤️ Like</button>
-  </div>
+<div class="post">
+  <img src="photo.jpg">
+
+  <h3>Cyber Setup 🔥</h3>
+
+  <p>Building my hacker website.</p>
+
+  <button>❤️ Like</button>
+</div>
 
 </div>
 
