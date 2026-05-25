@@ -22,12 +22,13 @@ nav ul li a {
   color: #00ff9d;
   text-decoration: none;
 }
-
-.menu-toggle {
-  display: none;
-  color: #00ff9d;
-  cursor: pointer;
+.menu-toggle{
+  display:none;
+  font-size:30px;
+  color:#00ff9d;
+  cursor:pointer;
 }
+
 
 /* mobile */
 @media(max-width:768px){
