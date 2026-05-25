@@ -46,7 +46,16 @@ nav ul li a {
   nav ul.active {
     display: flex;
   }
+.post{
+  width:90%;
+  margin:auto;
+}
 
+.post img{
+  width:200px;
+  height:200px;
+  object-fit:cover;
+}
   .menu-toggle {
     display: block;
   }
