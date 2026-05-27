@@ -97,6 +97,11 @@ nav ul li a {
     opacity:0;
     visibility:hidden;
   }
+  button:hover,
+nav a:hover{
+  box-shadow:0 0 15px #00ff00;
+  color:white;
+}
 }
   }
 }
