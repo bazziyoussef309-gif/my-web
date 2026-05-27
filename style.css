@@ -74,11 +74,6 @@ nav ul li a {
   z-index:0;
   opacity:0.25;
 }
-
-body *{
-  position: relative;
-  z-index:1;
-}
   }
 }
 
