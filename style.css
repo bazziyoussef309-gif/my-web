@@ -64,7 +64,7 @@ nav ul li a {
   width:200px;
   height:200px;
   object-fit:cover;
-  border-radius:10px;
+  border-radius:10px; 
   #matrix{
   position: fixed;
   top:0;
