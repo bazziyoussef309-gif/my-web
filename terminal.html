@@ -139,6 +139,12 @@ font-weight:bold;
 </head>
 
 <body>
+  <div class="terminal" id="screen">
+Welcome to CYBER TERMINAL v1.0<br>
+Type: help
+</div>
+
+<input id="cmd" placeholder="type command..." onkeydown="run(event)">
   <nav>
   <div class="logo">CYBER SITE</div>
 
@@ -223,6 +229,27 @@ Today I worked on my website and added stories 😎
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
+  function run(e){
+  if(e.key === "Enter"){
+    let input = document.getElementById("cmd").value;
+    let screen = document.getElementById("screen");
+
+    screen.innerHTML += "<br>> " + input;
+
+    if(input === "help"){
+      screen.innerHTML += "<br>commands: help, clear, about";
+    }
+
+    if(input === "about"){
+      screen.innerHTML += "<br>Youssef Cyber Project 💻";
+    }
+
+    if(input === "clear"){
+      screen.innerHTML = "";
+    }
+
+    document.getElementById("cmd").value = "";
+  }
 </script>
 </div>
 
