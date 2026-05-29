@@ -202,12 +202,17 @@ function toggleMenu(){
 }
 
 function like(btn){
+
+  document.getElementById("clickSound").play();
+
   let span = btn.querySelector("span");
-  let count = parseInt(span.innerText);
 
-  count++;
+  if(span){
+    let count = parseInt(span.innerText);
+    count++;
+    span.innerText = count;
+  }
 
-  span.innerText = count;
 }
 </script>
 <script>
