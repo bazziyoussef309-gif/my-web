@@ -123,6 +123,7 @@ nav a:hover{
   to{
     opacity:1;
   }
+  <audio id="clickSound" src="freesound_community-old-radio-button-click-97549 (1).mp3"></audio>
 }
 }
   }
