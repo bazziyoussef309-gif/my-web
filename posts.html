@@ -149,6 +149,12 @@ button:hover{
 </div>  
 
 <!-- POSTS -->
+  <textarea id="postText" placeholder="Write a post"></textarea>
+<br><br>
+
+<button onclick="addPost()">Publish</button>
+
+<div class="container">
 <div class="container">
 
   <div class="post">
@@ -262,5 +268,29 @@ setInterval(draw,35);
   <button onclick="document.getElementById('clickSound').play()">
 TEST SOUND
 </button>
+  <script>
+function addPost(){
+
+ let text = document.getElementById("postText").value;
+
+ if(text.trim() == "") return;
+
+ let post = document.createElement("div");
+
+ post.className = "post";
+
+ post.innerHTML = `
+   <h3>New Post 🚀</h3>
+   <p>${text}</p>
+   <button onclick="like(this)">
+     ❤️ Like <span>0</span>
+   </button>
+ `;
+
+ document.querySelector(".container").prepend(post);
+
+ document.getElementById("postText").value = "";
+}
+</script>
 </body>
 </html>
