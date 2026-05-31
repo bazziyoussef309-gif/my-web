@@ -191,19 +191,33 @@ input, textarea {
 /* =========================
    MOBILE
 ========================= */
-@media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    right: 20px;
-    top: 60px;
-    background: black;
-    border: 1px solid #00ff9d;
-    padding: 10px;
+.menu-toggle{
+  display:none;
+}
+
+@media (max-width:768px){
+
+  .menu-toggle{
+    display:block;
+    font-size:30px;
+    color:#00ff9d;
+    cursor:pointer;
   }
 
-  nav ul.active {
-    display: flex;
+  nav ul{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    right:20px;
+    top:60px;
+    background:black;
+    border:1px solid #00ff9d;
+    padding:10px;
+  }
+
+  nav ul.active{
+    display:flex;
+  }
+}
   }
   }
