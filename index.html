@@ -2,108 +2,68 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Youssef Site</title>
 
-  <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  font-family:Arial;
-  background:linear-gradient(-45deg,#0f172a,#1e293b,#0f172a,#1d4ed8);
-  background-size:400% 400%;
-  animation:bg 10s ease infinite;
-  color:white;
-  overflow:hidden;
-}
-
-@keyframes bg{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-
-.logo{
-  font-size:28px;
-  font-weight:bold;
-  color:#38bdf8;
-}
-
-.hero{
-  height:85vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  text-align:center;
-  padding:20px;
-}
-
-.hero h1{
-  font-size:60px;
-  margin-bottom:20px;
-}
-
-.hero p{
-  font-size:20px;
-  color:#cbd5e1;
-  margin-bottom:40px;
-}
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="navbar">
-    <div class="logo">Youssef Site</div>
-  </div>
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">Youssef Site</div>
 
-  <div class="hero">
-    <h1>WELCOME TO MY CYBER WORLD 😎</h1>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-    <p>Future Developer • Cyber Security • Firebase System</p>
+  <ul id="menu">
+    <li><a href="posts.html" onclick="playClick()">Posts</a></li>
+    <li><a href="profile.html" onclick="playClick()">Profile</a></li>
+    <li><a href="terminal.html" onclick="playClick()">Terminal</a></li>
+  </ul>
+</nav>
 
-    <button onclick="enterSystem()">ENTER SYSTEM</button>
-  </div>
+<!-- HERO -->
+<div class="hero">
+  <h1>WELCOME TO MY CYBER WORLD 😎</h1>
 
-  <script>
-    function enterSystem(){
+  <p>Future Developer • Cyber Security • Firebase System</p>
 
-      document.body.innerHTML = `
-        <h1 style="
-        color:lime;
-        font-family:monospace;
-        text-align:center;
-        margin-top:250px;">
-        Accessing System...
-        </h1>
-      `;
+  <button onclick="playClick(); enterSystem()">ENTER SYSTEM</button>
+</div>
 
-      setTimeout(() => {
-        window.location.href = "login.html";
-      },2000);
+<!-- AUDIO (YOUR FILE) -->
+<audio id="clickSound" src="freesound_community-old-radio-button-click-97549 (1).mp3"></audio>
 
-    }
-  </script>
+<!-- SCRIPTS -->
 <script>
+function enterSystem(){
+  document.body.innerHTML = `
+    <h1 style="
+      color:lime;
+      font-family:monospace;
+      text-align:center;
+      margin-top:250px;">
+      Accessing System...
+    </h1>
+  `;
+
+  setTimeout(() => {
+    window.location.href = "login.html";
+  }, 2000);
+}
+
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
-</script>
-  <script>
-    function playClick() {
-  document.getElementById("clickSound").currentTime = 0;
-  document.getElementById("clickSound").play();
-    }
-  </script>
-  <audio id="clickSound" src="freesound_community-old-radio-button-click-97549 (1).mp3"></audio>
-</body>
 
+function playClick(){
+  const sound = document.getElementById("clickSound");
+  sound.currentTime = 0;
+  sound.play();
+}
+</script>
+
+</body>
 </html>
