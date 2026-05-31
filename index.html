@@ -9,82 +9,53 @@
   <title>Youssef Site</title>
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    body{
-      font-family:Arial;
-      background:linear-gradient(-45deg,#0f172a,#1e293b,#0f172a,#1d4ed8);
-      background-size:400% 400%;
-      animation:bg 10s ease infinite;
-      color:white;
-      overflow:hidden;
-    }
+body{
+  font-family:Arial;
+  background:linear-gradient(-45deg,#0f172a,#1e293b,#0f172a,#1d4ed8);
+  background-size:400% 400%;
+  animation:bg 10s ease infinite;
+  color:white;
+  overflow:hidden;
+}
 
-    @keyframes bg{
-      0%{background-position:0% 50%;}
-      50%{background-position:100% 50%;}
-      100%{background-position:0% 50%;}
-    }
+@keyframes bg{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
 
- <nav>
-  <div class="logo">CYBER SITE</div>
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:#38bdf8;
+}
 
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+.hero{
+  height:85vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  padding:20px;
+}
 
-  <ul id="menu">
-    <li><a href="posts.html">Posts</a></li>
-    <li><a href="profile.html">Profile</a></li>
-    <li><a href="terminal.html">Terminal</a></li>
-  </ul>
-</nav>
-    }
+.hero h1{
+  font-size:60px;
+  margin-bottom:20px;
+}
 
-    .logo{
-      font-size:28px;
-      font-weight:bold;
-      color:#38bdf8;
-    }
-
-    .hero{
-      height:85vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-direction:column;
-      text-align:center;
-      padding:20px;
-    }
-
-    .hero h1{
-      font-size:60px;
-      margin-bottom:20px;
-    }
-
-    .hero p{
-      font-size:20px;
-      color:#cbd5e1;
-      margin-bottom:40px;
-    }
-
-    button{
-      padding:15px 40px;
-      border:none;
-      border-radius:15px;
-      background:#2563eb;
-      color:white;
-      font-size:20px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    button:hover{
-      transform:scale(1.08);
-      box-shadow:0 0 20px #3b82f6;
-    }
+.hero p{
+  font-size:20px;
+  color:#cbd5e1;
+  margin-bottom:40px;
+}
   </style>
 </head>
 
