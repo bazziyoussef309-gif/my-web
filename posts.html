@@ -6,98 +6,12 @@
 <title>Posts</title>
 
 <link rel="stylesheet" href="style.css">
-
-<style>
-  .post{
-  border:1px solid #00ff9d;
-  margin-bottom:25px;
-  padding:15px;
-  background:rgba(0,0,0,0.7);
-  box-shadow:0 0 15px #00ff9d;
-  border-radius:10px;
-}
-
-.post img{
-  width:200px;
-  height:200px;
-  object-fit:cover;
-  border-radius:10px;
-}
-
-.post img:hover{
-  transform:scale(1.02);
-}
-
-.post h3{
-  margin-top:10px;
-  color:#00ff9d;
-}
-
-.post p{
-  color:white;
-}
-body{
-  margin:0;
-  font-family: monospace;
-  background:black;
-  color:#00ff9d;
-  padding-top:80px;
-}
-
-/* posts container */
-.container{
-  width:90%;
-  max-width:600px;
-  margin:auto;
-}
-
-/* card */
-.post{
-  border:1px solid #00ff9d;
-  margin-bottom:20px;
-  padding:10px;
-  background:rgba(0,0,0,0.6);
-  box-shadow:0 0 10px #00ff9d;
-  animation: fade 0.6s ease;
-}
-
-@keyframes fade{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-.post img{
-  width:100%;
-  border:1px solid #00ff9d;
-}
-
-.post h3{
-  margin:10px 0 5px;
-}
-
-.post p{
-  font-size:14px;
-}
-
-/* like button */
-button{
-  background:black;
-  border:1px solid #00ff9d;
-  color:#00ff9d;
-  padding:5px 10px;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-button:hover{
-  box-shadow:0 0 10px #00ff9d;
-}
-</style>
 </head>
+
 <body>
-  
-  <canvas id="matrix"></canvas>
-<!-- NAVBAR -->
+
+<canvas id="matrix"></canvas>
+
 <nav>
   <div class="logo glitch">CYBER SITE</div>
 
@@ -109,30 +23,12 @@ button:hover{
     <li><a href="terminal.html">Terminal</a></li>
   </ul>
 </nav>
-<div style="padding:20px;">
 
-  <div style="border:1px solid #00ff9d; margin-bottom:20px; padding:10px;">
-    <h3>First Post 🔥</h3>
-    <p>This is my cyber website.</p>
-    <button>❤️ Like</button>
-  </div>
+<div class="container">
 
-  <div style="border:1px solid #00ff9d; margin-bottom:20px; padding:10px;">
-    <h3>Hacking Vibes 💻</h3>
-    <p>Matrix style UI working.</p>
-    <button>❤️ Like</button>
-  </div>
-
-</div>  
-
-<!-- POSTS -->
   <textarea id="postText" placeholder="Write a post"></textarea>
-<br><br>
 
-<button onclick="addPost()">Publish</button>
-
-<div class="container">
-<div class="container">
+  <button onclick="addPost()">Publish</button>
 
   <div class="post">
     <img src="photo.jbg.jpeg">
@@ -141,34 +37,35 @@ button:hover{
 
     <p>This is my cyber styled post system.</p>
 
-   <button onclick="like(this)">
-  ❤️ Like <span>0</span>
-</button>
-</div>
+    <button onclick="like(this)">
+      ❤️ Like <span>0</span>
+    </button>
+  </div>
 
-<div class="post">
+  <div class="post">
     <img src="photo.jbg.jpeg">
 
     <h3>Hacking Vibes 💻</h3>
 
     <p>Matrix style website building.</p>
 
-<button onclick="like(this)">
-  ❤️ Like <span>0</span>
-</button>
-</div>  
+    <button onclick="like(this)">
+      ❤️ Like <span>0</span>
+    </button>
+  </div>
+
   <div class="post">
     <img src="Heyvphoto.jbg.jpeg">
 
-    <h3>First Post 🔥</h3>
+    <h3>Cyber World 🌐</h3>
 
-    <p>This is my cyber styled post system.</p>
-<button onclick="like(this)">
-  ❤️ Like <span>0</span>
-</button>
-</div>
+    <p>Learning HTML CSS and JavaScript.</p>
 
-</div>
+    <button onclick="like(this)">
+      ❤️ Like <span>0</span>
+    </button>
+  </div>
+
 </div>
 
 <script>
@@ -177,9 +74,6 @@ function toggleMenu(){
 }
 
 function like(btn){
-
-  document.getElementById("clickSound").play();
-
   let span = btn.querySelector("span");
 
   if(span){
@@ -187,9 +81,32 @@ function like(btn){
     count++;
     span.innerText = count;
   }
+}
 
+function addPost(){
+
+  let text = document.getElementById("postText").value;
+
+  if(text.trim() === "") return;
+
+  let post = document.createElement("div");
+
+  post.className = "post";
+
+  post.innerHTML = `
+    <h3>New Post 🚀</h3>
+    <p>${text}</p>
+    <button onclick="like(this)">
+      ❤️ Like <span>0</span>
+    </button>
+  `;
+
+  document.querySelector(".container").appendChild(post);
+
+  document.getElementById("postText").value = "";
 }
 </script>
+
 <script>
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
@@ -210,6 +127,7 @@ for(let x = 0; x < columns; x++){
 }
 
 function draw(){
+
   ctx.fillStyle = "rgba(0,0,0,0.05)";
   ctx.fillRect(0,0,canvas.width,canvas.height);
 
@@ -217,6 +135,7 @@ function draw(){
   ctx.font = fontSize + "px monospace";
 
   for(let i = 0; i < drops.length; i++){
+
     const text = matrix[Math.floor(Math.random()*matrix.length)];
 
     ctx.fillText(text,i*fontSize,drops[i]*fontSize);
@@ -230,40 +149,7 @@ function draw(){
 }
 
 setInterval(draw,35);
-  </script>
- <audio id="clickSound" controls>
-  <source src="freesound_community-old-radio-button-click-97549%20(1).mp3" type="audio/mpeg">
-</audio>
-  <button onclick="document.getElementById('clickSound').play()">
-TEST SOUND
-</button>
-  <script>
-function addPost(){
-
- let text = document.getElementById("postText").value;
-
- if(text.trim() == "") return;
-
- let post = document.createElement("div");
-
- post.className = "post";
-
- post.innerHTML = `
-   <h3>New Post 🚀</h3>
-   <p>${text}</p>
-   <button onclick="like(this)">
-     ❤️ Like <span>0</span>
-   </button>
- `;
-
- document.querySelector(".container").prepend(post);
-document.getElementById("postText").value = "";
-}
-   </script> 
-    <script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
-}
 </script>
+
 </body>
 </html>
