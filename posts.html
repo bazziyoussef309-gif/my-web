@@ -35,10 +35,12 @@
     <h3>First Post 🔥</h3>
 
     <p>This is my cyber styled post system.</p>
+<button onclick="likePost()">
+  ❤️ Like
+</button>
 
-    <button onclick="like(this)">
-      ❤️ Like <span>0</span>
-    </button>
+<p id="likes">0 Likes</p>
+ 
   </div>
 
   <div class="post">
@@ -149,6 +151,52 @@ function draw(){
 
 setInterval(draw,35);
 </script>
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  updateDoc,
+  increment
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBs1bbPn87Pp6H11ZFYXQui7LA55V3Mc0g",
+  authDomain: "youssefcyber-39505.firebaseapp.com",
+  projectId: "youssefcyber-39505",
+  storageBucket: "youssefcyber-39505.firebasestorage.app",
+  messagingSenderId: "651749790484",
+  appId: "1:651749790484:web:b85831fd2aae673144e801"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const postRef = doc(db, "likes", "mainPost");
+
+async function loadLikes(){
+  const snap = await getDoc(postRef);
+
+  if(snap.exists()){
+    document.getElementById("likes").innerText =
+      snap.data().count + " Likes";
+  }
+}
+
+window.likePost = async function(){
+
+  await updateDoc(postRef,{
+    count: increment(1)
+  });
+
+  loadLikes();
+};
+
+loadLikes();
+
+</script>
 </body>
 </html>
