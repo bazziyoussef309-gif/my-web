@@ -84,23 +84,46 @@ function like(btn){
   }
 }
 
-function addPost(){
+window.addPost = async function(){
 
   let text = document.getElementById("postText").value;
 
   if(text.trim() === "") return;
 
-  let post = document.createElement("div");
+  await addDoc(postsRef,{
+    text:text
+  });
 
-  post.className = "post";
+  document.getElementById("postText").value = "";
 
-  post.innerHTML = `
-    <h3>New Post 🚀</h3>
-    <p>${text}</p>
-    <button onclick="like(this)">
-      ❤️ Like <span>0</span>
-    </button>
-  `;
+  loadPosts();
+}
+  async function loadPosts(){
+
+  const snapshot = await getDocs(postsRef);
+
+  document.querySelectorAll(".firebase-post").forEach(p => p.remove());
+
+  snapshot.forEach(doc => {
+
+    const data = doc.data();
+
+    const post = document.createElement("div");
+
+    post.className = "post firebase-post";
+
+    post.innerHTML = `
+      <h3>New Post 🚀</h3>
+      <p>${data.text}</p>
+    `;
+
+    document.querySelector(".container").appendChild(post);
+  });
+}
+
+loadPosts();
+
+</script>
 
   document.querySelector(".container").appendChild(post);
 
@@ -200,5 +223,29 @@ window.likePost = async function(){
 loadLikes();
 
 </script>
+  <script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBs1bbPn87Pp6H11ZFYXQui7LA55V3Mc0g",
+  authDomain: "youssefcyber-39505.firebaseapp.com",
+  projectId: "youssefcyber-39505",
+  storageBucket: "youssefcyber-39505.firebasestorage.app",
+  messagingSenderId: "651749790484",
+  appId: "1:651749790484:web:b85831fd2aae673144e801"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const postsRef = collection(db, "posts");
 </body>
 </html>
