@@ -84,53 +84,8 @@ function like(btn){
   }
 }
 
-window.addPost = async function(){
-
-  let text = document.getElementById("postText").value;
-
-  if(text.trim() === "") return;
-
-  await addDoc(postsRef,{
-    text:text
-  });
-
-  document.getElementById("postText").value = "";
-
-  loadPosts();
-}
-  async function loadPosts(){
-
-  const snapshot = await getDocs(postsRef);
-
-  document.querySelectorAll(".firebase-post").forEach(p => p.remove());
-
-  snapshot.forEach(doc => {
-
-    const data = doc.data();
-
-    const post = document.createElement("div");
-
-    post.className = "post firebase-post";
-
-    post.innerHTML = `
-      <h3>New Post 🚀</h3>
-      <p>${data.text}</p>
-    `;
-
-    document.querySelector(".container").appendChild(post);
-  });
-}
-
-loadPosts();
 
 </script>
-
-  document.querySelector(".container").appendChild(post);
-
-  document.getElementById("postText").value = "";
-}
-</script>
-
 <script>
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
@@ -201,6 +156,45 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const postRef = doc(db, "likes", "mainPost");
+  window.addPost = async function(){
+
+  let text = document.getElementById("postText").value;
+
+  if(text.trim() === "") return;
+
+  await addDoc(postsRef,{
+    text:text
+  });
+
+  document.getElementById("postText").value = "";
+
+  loadPosts();
+}
+
+async function loadPosts(){
+
+  const snapshot = await getDocs(postsRef);
+
+  document.querySelectorAll(".firebase-post").forEach(p => p.remove());
+
+  snapshot.forEach(doc => {
+
+    const data = doc.data();
+
+    const post = document.createElement("div");
+
+    post.className = "post firebase-post";
+
+    post.innerHTML = `
+      <h3>New Post 🚀</h3>
+      <p>${data.text}</p>
+    `;
+
+    document.querySelector(".container").appendChild(post);
+  });
+}
+
+loadPosts();
 
 async function loadLikes(){
   const snap = await getDoc(postRef);
