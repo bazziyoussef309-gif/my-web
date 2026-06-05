@@ -40,6 +40,15 @@
 </button>
 
 <p id="likes">0 Likes</p>
+    <h3>Comments</h3>
+
+<input id="commentText" placeholder="Write comment">
+
+<button onclick="addComment()">
+Add Comment
+</button>
+
+<div id="comments"></div>
  
   </div>
 
@@ -155,6 +164,42 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+  const commentsRef = collection(db,"comments");
+
+window.addComment = async function(){
+
+  let text = document.getElementById("commentText").value;
+
+  if(text.trim() === "") return;
+
+  await addDoc(commentsRef,{
+    text:text
+  });
+
+  document.getElementById("commentText").value="";
+
+  loadComments();
+}
+
+async function loadComments(){
+
+  let box = document.getElementById("comments");
+
+  box.innerHTML = "";
+
+  const snapshot = await getDocs(commentsRef);
+
+  snapshot.forEach((doc)=>{
+
+    box.innerHTML += `
+      <p>💬 ${doc.data().text}</p>
+    `;
+
+  });
+
+}
+
+loadComments();
 
 const postRef = doc(db, "likes", "mainPost");
   const postsRef = collection(db, "posts");
