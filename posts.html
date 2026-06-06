@@ -139,6 +139,7 @@ function draw(){
 setInterval(draw,35);
 </script>
 <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
@@ -173,9 +174,9 @@ window.addComment = async function(){
 
   if(text.trim() === "") return;
 
-await addDoc(commentsRef,{
+  await addDoc(commentsRef,{
   text:text,
-  username:"Youssef"
+  username: auth.currentUser.email
 });
 
   document.getElementById("commentText").value="";
