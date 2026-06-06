@@ -20,6 +20,7 @@
     <li><a href="posts.html">Posts</a></li>
     <li><a href="profile.html">Profile</a></li>
     <li><a href="terminal.html">Terminal</a></li>
+    <li><a href="#" onclick="logout()">Logout</a></li>
   </ul>
 </nav>
 
@@ -140,6 +141,10 @@ setInterval(draw,35);
 </script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import {
+  getAuth,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
   
 import {
   getFirestore,
@@ -163,6 +168,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+  const auth = getAuth(app);
   const commentsRef = collection(db,"comments");
 
 window.addComment = async function(){
@@ -268,6 +274,13 @@ window.likePost = async function(){
   await deleteDoc(doc(db, "posts", id));
 
   loadPosts();
+};
+  window.logout = async function(){
+
+  await signOut(auth);
+
+  window.location.href = "login.html";
+
 };
 
 loadLikes();
