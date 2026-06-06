@@ -173,9 +173,9 @@ window.addComment = async function(){
 
   if(text.trim() === "") return;
 
- await addDoc(commentsRef,{
+await addDoc(commentsRef,{
   text:text,
-  username: auth.currentUser.email
+  username:"Youssef"
 });
 
   document.getElementById("commentText").value="";
