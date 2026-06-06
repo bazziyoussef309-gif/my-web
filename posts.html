@@ -173,8 +173,9 @@ window.addComment = async function(){
   if(text.trim() === "") return;
 
   await addDoc(commentsRef,{
-    text:text
-  });
+  text:text,
+  username:"Youssef"
+});
 
   document.getElementById("commentText").value="";
 
@@ -191,9 +192,9 @@ async function loadComments(){
 
   snapshot.forEach((doc)=>{
 
-    box.innerHTML += `
-      <p>💬 ${doc.data().text}</p>
-    `;
+  box.innerHTML += `
+  <p>💬 <b>${doc.data().username}</b>: ${doc.data().text}</p>
+`;
 
   });
 
