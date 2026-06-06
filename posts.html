@@ -140,9 +140,7 @@ setInterval(draw,35);
 </script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
+  
 import {
   getFirestore,
   doc,
@@ -164,7 +162,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
 const db = getFirestore(app);
   const commentsRef = collection(db,"comments");
 
@@ -174,9 +171,9 @@ window.addComment = async function(){
 
   if(text.trim() === "") return;
 
-  await addDoc(commentsRef,{
+await addDoc(commentsRef,{
   text:text,
-  username: auth.currentUser.email
+  username:"Youssef"
 });
 
   document.getElementById("commentText").value="";
