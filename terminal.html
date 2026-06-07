@@ -178,6 +178,15 @@ button{
 </head>
 
 <body>
+  <div class="terminal">
+  <div id="output">
+    Welcome to Youssef Terminal 🚀<br>
+    Type help
+  </div>
+
+  <input id="command" placeholder="Enter command..."
+         onkeydown="runCommand(event)">
+</div>
 
 <nav>
   <div class="logo">CYBER SITE</div>
@@ -228,7 +237,7 @@ Type: help
   </div>
 
   <div class="story">
-    <<img src="photo.jbg.jpeg" alt="">
+    <img src="photo.jbg.jpeg" alt="">
     <p>Cyber ⚡</p>
   </div>
 </div>
@@ -263,17 +272,38 @@ function run(e){
     screen.innerHTML += "<br>> " + input;
 
     if(input === "help"){
-      screen.innerHTML += "<br>commands: help, clear, about";
-    }
 
-    if(input === "about"){
-      screen.innerHTML += "<br>Youssef Cyber Project 💻";
-    }
+  screen.innerHTML += `
+    <br>help
+    <br>about
+    <br>posts
+    <br>profile
+    <br>clear
+  `;
 
-    if(input === "clear"){
-      screen.innerHTML = "";
-    }
+}else if(input === "about"){
 
+  screen.innerHTML +=
+    "<br>Youssef Cyber Project 💻";
+
+}else if(input === "posts"){
+
+  window.location.href = "posts.html";
+
+}else if(input === "profile"){
+
+  window.location.href = "profile.html";
+
+}else if(input === "clear"){
+
+  screen.innerHTML = "";
+
+}else{
+
+  screen.innerHTML +=
+    "<br>Command not found";
+
+}
     document.getElementById("cmd").value = "";
   }
 }
