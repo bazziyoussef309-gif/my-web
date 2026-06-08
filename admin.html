@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+
+<style>
+body{
+  background:black;
+  color:lime;
+  font-family:monospace;
+  padding:20px;
+}
+
+.card{
+  border:1px solid lime;
+  padding:15px;
+  margin:10px 0;
+}
+button{
+  background:lime;
+  border:none;
+  padding:8px;
+}
+</style>
+</head>
+<body>
+
+<h1>ADMIN PANEL ⚡</h1>
+
+<div class="card">
+  Posts: <span id="postsCount">0</span>
+</div>
+
+<div class="card">
+  Comments: <span id="commentsCount">0</span>
+</div>
+
+<div id="postsList"></div>
+<script type="module">
+...  
+  </script>
+  <script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+getDocs,
+deleteDoc,
+doc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "YOUR_KEY",
+authDomain: "YOUR_DOMAIN",
+projectId: "YOUR_PROJECT_ID",
+storageBucket: "YOUR_BUCKET",
+messagingSenderId: "YOUR_ID",
+appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const postsRef = collection(db,"posts");
+const commentsRef = collection(db,"comments");
+
+async function loadAdmin(){
+
+const posts = await getDocs(postsRef);
+const comments = await getDocs(commentsRef);
+
+document.getElementById("postsCount").innerText =
+posts.size;
+
+document.getElementById("commentsCount").innerText =
+comments.size;
+
+const list =
+document.getElementById("postsList");
+
+list.innerHTML = "";
+
+posts.forEach((p)=>{
+
+list.innerHTML += `
+<div class="card">
+${p.data().text}
+<button onclick="deletePost('${p.id}')">
+Delete
+</button>
+</div>
+`;
+
+});
+
+}
+
+window.deletePost = async function(id){
+
+await deleteDoc(doc(db,"posts",id));
+
+loadAdmin();
+
+}
+
+loadAdmin();
+
+  </script>
+
+</body>
+</html>
