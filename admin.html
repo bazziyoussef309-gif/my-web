@@ -25,7 +25,7 @@ button{
 </head>
 <body>
 
-<h1>ADMIN PANEL ⚡</h1>
+<li><a href="admin.html">Admin</a></li>
 
 <div class="card">
   Posts: <span id="postsCount">0</span>
@@ -52,16 +52,14 @@ deleteDoc,
 doc
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
 const firebaseConfig = {
-apiKey: "YOUR_KEY",
-authDomain: "YOUR_DOMAIN",
-projectId: "YOUR_PROJECT_ID",
-storageBucket: "YOUR_BUCKET",
-messagingSenderId: "YOUR_ID",
-appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBs1bbPn87Pp6H11ZFYXQui7LA55V3Mc0g",
+  authDomain: "youssefcyber-39505.firebaseapp.com",
+  projectId: "youssefcyber-39505",
+  storageBucket: "youssefcyber-39505.firebasestorage.app",
+  messagingSenderId: "651749790484",
+  appId: "1:651749790484:web:b85831fd2aae673144e801"
 };
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
